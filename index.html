@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stone Beast | Statues and accesoires made of natural stone</title>
+	<link href="https://fonts.googleapis.com/css?family=Cinzel|Libre+Baskerville" rel="stylesheet">
+	<link href="normalize.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+		
+	</style>
+</head>
+<body>
+<div id="main-block">
+<header>
+	<div class="title">
+		Stone <img class="logo" src="bear.png" > Beast 
+		<span> Exclusive Stone Production </span>
+		<div class="horisontal-bar"></div>
+		<div class="top-menu">
+			<a href="#">Who We Are</a>
+			<a href="#">How to Buy</a>
+			<a href="#">Custom Order</a>
+		</div>
+	</div>
+	<!--div class="filter"> Filter  </div-->
+</header>
+
+</div>
+
+<script type="text/javascript">
+
+var ANIMATION_TIME = '500';
+
+function addClass(elem, cname) {
+			if (!(~elem.className.indexOf(cname))) {
+				elem.className = elem.className + " " + cname;
+			}
+}
+
+function removeClass(elem, cname) {
+	var classlist = elem.className.split(" ");
+	classlist = classlist.filter(function(q){
+		return q != cname;
+	});
+	elem.className = classlist.join(" ");
+}
+
+
+function itemHover() {
+	var item = this;
+	item.hover = true;
+	addClass(item.children[0], 'hidden');
+	addClass(item.children[1], 'hidden');
+	setTimeout(function() {
+		if(item.hover == false) return;
+		addClass(item.children[0], 'center');
+		removeClass(item.children[0], 'hidden');
+	}, ANIMATION_TIME);
+}
+
+function itemUnhover() {
+	var item = this;
+	item.hover = false;
+	addClass(item.children[0], 'hidden');
+	setTimeout(function(){
+		if(item.hover == true) return;
+		removeClass(item.children[0], 'center');
+		removeClass(item.children[0], 'hidden');
+		removeClass(item.children[1], 'hidden');
+	}, ANIMATION_TIME);
+}
+
+var items = {};
+items.JasperRhino = {
+	id: 'JasperRhino',
+	title: 'Jasper Rhino',
+	description: 'The impersonation of power, this Rhino perfectly suits a boss\' place. Made out of jasper with carnelian horns he has 7 cm length and about 200 g weight. I\'d like to write more, but I haven\'t seen him yet. I believe he is cool'
+};
+items.JadeHippo = {
+	id: 'JadeHippo',
+	title: 'Jade Hippo',
+	description: 'Exclusive 64Gb USB 3.0 Flash Drive, made out of jade, jasper, gold, silver and garnet. It\'s a luxury gift which is useful in the daily life. A perfect present for anyone you respect. You can be sure, no one else have it. '
+};
+items.ObsidianPug = {
+	id: 'ObsidianPug',
+	title: 'Obsidian Pug',
+	description: 'Pugs are awesome pets which bring you good mood and positive emotions. It\'s a great gift for people who fall in love with pugs, especially owners. Made out of obsidian with rhodonite tongue and eyes from tiger\'s eye'
+};
+
+function addItem(itemInfo) {
+	var item = document.createElement('div');
+	item.className = 'item';
+	item.id = itemInfo.id;
+	item.style.backgroundImage = 'url(images/' + itemInfo.id + '/' + itemInfo.id + '.png)';
+	item.addEventListener('mouseenter', itemHover);
+	item.addEventListener('mouseleave', itemUnhover);
+	var itemTitle = document.createElement('div');
+	itemTitle.className = 'item-title';
+	itemTitle.innerHTML = itemInfo.title;
+	var itemDescription = document.createElement('div');
+	itemDescription.className = 'item-description';
+	itemDescription.innerHTML = itemInfo.description;
+	item.appendChild(itemTitle);
+	item.appendChild(itemDescription);
+	document.getElementById('main-block').appendChild(item);
+
+
+}
+addItem(items.JasperRhino);
+addItem(items.JadeHippo);
+addItem(items.ObsidianPug);
+
+</script>
+
+</body>
+</html>
