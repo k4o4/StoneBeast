@@ -12,7 +12,9 @@ div {
 }
 
 header {
+	margin: auto;
 	text-align: center;
+	width: 1024px;
 }
 
 .center {
@@ -36,6 +38,7 @@ header {
 	text-align: center;
 	transition-duration: 0.5s;
 	transition-property: all;
+	z-index: 5;
 }
 
 .item:hover {
@@ -82,6 +85,40 @@ header {
 	width: 650px;
 }
 
+.thin-title {
+	background: rgba(255, 255, 255, 0.85);
+	font-family: 'Cinzel', serif;
+	font-size: 36px !important;
+	margin: auto;
+	position: fixed;
+	top: -110px;
+	transition-duration: 0.3s;
+	transition-property: all;
+	width: 1024px;
+	z-index: 10;
+}
+
+.thin-title-shown {
+	top: 0px;
+}
+
+.thin-title > a > span {
+	border-bottom: 1px solid;
+}
+
+.thin-title > a > span > .logo {
+	margin: auto 10px 5px 10px;
+	width: 60px;
+}
+
+.thin-menu > a  {
+	display: inline-block;
+	font-family: 'Libre Baskerville', serif;
+	font-size: 16px;
+	margin: 10px 10px;
+	position: relative;
+}
+
 .title {
 	color: #453f44;
 	cursor: default;
@@ -112,7 +149,8 @@ header {
 	position: relative;
 }
 
-.top-menu > a:after {
+.top-menu > a:after,
+.thin-menu > a:after {
 	background: #453f44;
 	content: '';
 	display: block;
@@ -122,11 +160,15 @@ header {
 }
 
 .top-menu > a:hover:after,
-.top-menu > a:focus:after {
+.top-menu > a:focus:after,
+.thin-menu > a:hover:after,
+.thin-menu > a:focus:after {
 	transform: scaleX(1);
 }
 
 #main-block {
 	margin: auto;
 	max-width: 1024px;
+	transition-duration: 0.2s;
+	transition-property: all;
 }
