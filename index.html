@@ -47,5 +47,22 @@
 var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
 <!-- {/literal} END JIVOSITE CODE -->
 
+	<script type="text/javascript">
+(function(d, w, k) {
+    w.morecrm_callback = function() {
+        try {
+            w.MI = new MorecrmIntegration(k);
+        } catch (e) {console.log(e)}
+    };
+
+    var n = d.getElementsByTagName("script")[0],
+        e = d.createElement("script");
+
+    e.type = "text/javascript";
+    e.async = true;
+    e.src = "https://morecrm.ru/integration/site/"+ k +".js";
+    n.parentNode.insertBefore(e, n);
+})(document, window, '6ea9ab1baa0efb9e19094440c317e21b');
+</script>
 </body>
 </html>
